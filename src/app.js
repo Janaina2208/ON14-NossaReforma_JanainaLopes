@@ -8,11 +8,13 @@ const database = require('./database/config')
 const app = express()
 
 const materialRoutes = require('./routes/materialRoutes')
+const index = require("./routes/index.js")
 //7
 app.use(cors())
 app.use(express.json())
 
 app.use("/nossareforma", materialRoutes)
+app.use("/", index)
 
 dotenv.config()
 
