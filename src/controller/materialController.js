@@ -40,80 +40,47 @@ const getAll = async (req, res) => {
 }
 
 //GET /:id - "/material"
-// const materialByName = (req, res) => {
-//     const {Argamassas, Cimento, Fixadores, Madeiramento, materiaisHidraulicos, materiaisEletricos, pisosERevestimentos, Telha, Tijolo, Tinta, outrosMateriais} = req.query
-//     try{
-//         Roles
-//             .findOne({
-//                 Argamassas,
-//                 Cimento,
-//                 Fixadores,
-//                 Madeiramento,
-//                 materiaisHidraulicos,
-//                 materiaisEletricos,
-//                 pisosERevestimentos,
-//                 Telha,
-//                 Tijolo,
-//                 Tinta,
-//                 outrosMateriais,
-//                 active: true
-//             },
-//             then(data => {
-//                 res.status(200).send({
-//                     message: 'Material encontrado! Veja a listagem abaixo!',
-//                     body: data
-//                 })
-//             }))
+// const getByMaterial = async (req, res) => {
+//     try {
+//         const materialFound = req.query.material;
+//         const donation = await MaterialSchema.find({materialFound})
+//     console.log(materialFound)
+//         return res.status(200).send({
+//             message: 'Material encontrado! Veja a listagem abaixo!',
+//             body: donation
+//         })
 //     } catch(error) {
-//             response.status(400).json({
-//                 message:error.message
-//             })
+//         return res.status(400).json({
+//             message:error.message
+//         })
 //     }
+// }
 
+    
 const getByMaterial = async (req, res) => {
     try {
-        const materialFound = req.query.material;
-        const donation = await MaterialSchema.find({materialFound})
-    console.log(materialFound)
-        return res.status(200).send({
-            message: 'Material encontrado! Veja a listagem abaixo!',
-            body: donation
-        })
-    } catch(error) {
-        return res.status(400).json({
-            message:error.message
+        const findMaterial = await MaterialSchema.findOne({"material": req.query.material})
+    
+        if(findMaterial){
+            findMaterial.material = findMaterial.material
+            res.status(200).send({
+                message: 'Material encontrado! Veja a listagem abaixo!',
+                body: findMaterial
+            })
+        } else{
+            res.status(404).send({
+                message: 'Material não encontrado! Veja a listagem abaixo!'
+            })
+        }
+        
+
+    } catch (error) {
+        res.status(400).json({
+        message:error.message
         })
     }
 }
 
-    // const {Argamassas, Cimento, Fixadores, Madeiramento, materiaisHidraulicos, materiaisEletricos, pisosERevestimentos, Telha, Tijolo, Tinta} = req.query
-    //     try{
-    //         const materialFound = await MaterialSchema.find({
-    //                 Argamassas,
-    //                 Cimento,
-    //                 Fixadores,
-    //                 Madeiramento,
-    //                 materiaisHidraulicos,
-    //                 materiaisEletricos,
-    //                 pisosERevestimentos,
-    //                 Telha,
-    //                 Tijolo,
-    //                 Tinta,
-    //                 active: true
-    //             })
-    //                 res.status(200).send({
-    //                     message: 'Material encontrado! Veja a listagem abaixo!',
-    //                     body: materialFound
-    //                 })
-    //             }
-                
-                
-    //     catch(error) {
-    //             res.status(400).json({
-    //                 message:error.message
-    //             })
-    //     }
-    
 
 //PUT /:id - "/atualiza"
 const updateDoacoesById = async (req, res) => {
