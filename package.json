@@ -1,0 +1,21 @@
+{
+  "name": "on14-projetofinalreprograma-janainalopes",
+  "version": "1.0.0",
+  "description": "projeto será uma planilha orçamentária\r meses do ano e a pessoa insere seus custos e receitas por mês\r ao final terá a soma de quanto recebeu e qt gastou separado e o saldo disso\r sugestao de nome: contadapp (fazendo referência ao app de contador)\r pode colocar o titulo mês/ano: novembro/2021 pra poder manter depois e a pessoa poder pesquisar oq fez ao longo do tempo\r ver se consigo vincular ao api do banco/cartao de credito",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "dotenv-safe": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.14",
+    "nodemon": "^2.0.15"
+  }
+}
