@@ -112,7 +112,7 @@ Rotas/EndPoints
 Rota que retorna uma lista com todos os itens da minha geladeira.
 HTTP 200 OK
 
-## GET /:id - "/material"
+## GET - "/buscar"
 Rota que retorna os detalhes sobre algum item, baseado no seu id.
 HTTP 200 OK
 
@@ -151,6 +151,7 @@ Nome: String
 Telefone: String
 
 ## Melhorias para o futuro
+criar um estoque com entrada e saída de material para controle
 
 ## Agradecimentos
 

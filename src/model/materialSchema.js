@@ -29,16 +29,12 @@ const materialSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    },
-    criadoEm:{
-        type: Date,
-        default: new Date()
     }
-})
+}, {timestamps:true})
 
-const nossaReforma = mongoose.model("nossaReforma", materialSchema)
+const NossaReforma = mongoose.model("nossaReforma", materialSchema)
 
-module.exports = nossaReforma
+module.exports = NossaReforma
 
 // Finalizado: boolean,
 // Material doação:boolean por itens,

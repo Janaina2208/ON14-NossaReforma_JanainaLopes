@@ -1,11 +1,12 @@
-const MaterialSchema = require('../model/materialSchema')
+const NossaReforma = require('../model/materialSchema')
 
-const mongoose = require('mongoose')
 //CRUD --> CREATE - READ - UPDATE - DELETE
 //POST - "/doacao"
 const createDonations = async (req, res) => {
     try {
-        const newDonation = new MaterialSchema({
+        const newDonation = new NossaReforma({
+            //pode ser tb = await NossaReforma.create(req.body)
+            //res.status normal
             _id: new mongoose.Types.ObjectId(),
             finalizado: req.body.finalizado,
             material: req.body.material,
@@ -16,7 +17,7 @@ const createDonations = async (req, res) => {
         })
 
         const donationSaved = await newDonation.save()
-        res.status(200).json({
+        res.status(201).json({
             message: "Doação adicionada com sucesso! Gratidão!",
             donationSaved
         })
@@ -30,79 +31,54 @@ const createDonations = async (req, res) => {
 //GET /todos - "/todos"
 const getAll = async (req, res) => {
     try {
-        const materials = await MaterialSchema.find()
+        const materials = await NossaReforma.find()
         res.status(200).json(materials)
     } catch (error) {
         res.status(500).json({
-            messagem:error.message
+            message: error.message
         })
     }
 }
 
-//GET /:id - "/material"
-// const getByMaterial = async (req, res) => {
-//     try {
-//         const materialFound = req.query.material;
-//         const donation = await MaterialSchema.find({materialFound})
-//     console.log(materialFound)
-//         return res.status(200).send({
-//             message: 'Material encontrado! Veja a listagem abaixo!',
-//             body: donation
-//         })
-//     } catch(error) {
-//         return res.status(400).json({
-//             message:error.message
-//         })
-//     }
-// }
-
-    
+//GET - "/buscar"
 const getByMaterial = async (req, res) => {
     try {
-        const findMaterial = await MaterialSchema.findOne({"material": req.query.material})
+        const findMaterial = await NossaReforma.findOne({"material": req.query.material})
     
         if(findMaterial){
             findMaterial.material = findMaterial.material
             res.status(200).send({
-                message: 'Material encontrado! Veja a listagem abaixo!',
+                message: 'Material encontrado! Veja a lista abaixo onde tem o que você precisa.',
                 body: findMaterial
             })
         } else{
             res.status(404).send({
-                message: 'Material não encontrado! Veja a listagem abaixo!'
+                message: 'Material não encontrado... Espero que possamos te ajudar numa próxima necessidade!'
             })
         }
         
 
     } catch (error) {
         res.status(400).json({
-        message:error.message
+        message: error.message
         })
     }
 }
 
 
 //PUT /:id - "/atualiza"
-const updateDoacoesById = async (req, res) => {
+const updateDonationsById = async (req, res) => {
     try {
-        const findMaterial = await MaterialSchema.findById(req.params.id)
+        const findMaterial = await NossaReforma.findById(req.params.id)
         console.log(findMaterial)
 
         if(findMaterial){
-            findMaterial.Finalizado = req.body.Finalizado || findMaterial.Finalizado
-            findMaterial.Argamassas = req.body.Argamassas || findMaterial.Argamassas
-            findMaterial.Cimento = req.body.Cimento || findMaterial.Cimento
-            findMaterial.Fixadores = req.body.Fixadores || findMaterial.Fixadores
-            findMaterial.Madeiramento = req.body.Madeiramento || findMaterial.Madeiramento
-            findMaterial.materiaisHidraulicos = req.body.materiaisHidraulicos || findMaterial.materiaisHidraulicos
-            findMaterial.materiaisEletricos = req.body.materiaisEletricos || findMaterial.materiaisEletricos
-            findMaterial.pisosERevestimentos = req.body.pisosERevestimentos || findMaterial.pisosERevestimentos
-            findMaterial.Telha = req.body.Telha || findMaterial.Telha
-            findMaterial.Tijolo = req.body.Tijolo || findMaterial.Tijolo
-            findMaterial.Tinta = req.body.Tinta || findMaterial.Tinta
-            findMaterial.outrosMateriais = req.body.outrosMateriais || findMaterial.outrosMateriais
+            findMaterial.finalizado = req.body.finalizado || findMaterial.finalizado
+            findMaterial.material = req.body.material || findMaterial.material
             findMaterial.quantidadeDeMaterial = req.body.quantidadeDeMaterial || findMaterial.quantidadeDeMaterial
-            findMaterial.Telefone = req.body.Telefone || findMaterial.Telefone
+            findMaterial.bairroRetirada = req.body.bairroRetirada || findMaterial.bairroRetirada
+            findMaterial.nome = req.body.nome || findMaterial.nome
+            findMaterial.telefone = req.body.telefone || findMaterial.telefone
         }
         const savedDoacao = await findMaterial.save()
         // console.log('APÓS ATUALIZAR', savedDoacao)
@@ -120,12 +96,12 @@ const updateDoacoesById = async (req, res) => {
 //DELETE /:id - "/delete"
 const deleteDoacao = async (req, res) => {
     try {
-        const doacaoFound = await MaterialSchema.findById(req.params.id)
+        const doacaoFound = await NossaReforma.findById(req.params.id)
 
         await doacaoFound.delete()
 
         res.status(200).json({
-            message: doacaoFound.Nome + "Doação deletada com sucesso. Obrigada pela contibuição!"
+            message: "Doação deletada com sucesso. Obrigada pela contibuição!"
         })
     } catch (error) {
         res.status(400).json({
@@ -137,7 +113,7 @@ const deleteDoacao = async (req, res) => {
 module.exports = {
     getAll,
     createDonations,
-    updateDoacoesById,
+    updateDonationsById,
     deleteDoacao,
     getByMaterial
 }
