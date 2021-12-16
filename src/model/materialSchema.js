@@ -53,3 +53,19 @@ module.exports = NossaReforma
 // Bairro para retirada: String
 // Nome: String
 // Telefone: String
+
+
+//IDEIA INICIAL DE SCHEMA E ARRANJO DA API
+// Cadastro de quem vai doar.
+// Com a lista do material
+// Cadastro de quem vai receber a doação
+
+// -- parametros
+// finalizado: boolean
+// material para doar:boolean por itens
+// material que preciso: boolean por itens
+// outros materiais: [String]
+// Quantidade de material: String
+// bairro: String
+// nome: String
+// telefone: String

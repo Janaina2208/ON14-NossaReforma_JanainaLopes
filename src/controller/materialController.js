@@ -100,7 +100,7 @@ const deleteDoacao = async (req, res) => {
 
         await doacaoFound.delete()
 
-        res.status(200).json({
+        res.status(204).json({
             message: "Doação deletada com sucesso. Obrigada pela contibuição!"
         })
     } catch (error) {
