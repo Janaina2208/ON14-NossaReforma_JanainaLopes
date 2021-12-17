@@ -5,9 +5,6 @@ const materialSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
-    // Sugestão: no seu banco possuir apenas um campo de "material" e, no frontend, 
-    // as opções serem adicionadas. Para cada material a ser doado, a pessoa deve fazer uma solicitação 
-    // e isso terá um registro no banco
     material: {
         type: String,
         required: true,

@@ -24,10 +24,16 @@ API para doação de material de construção excedentes de outras reformas.
 
 Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LER-CONSULTAR), UPDATE(ATUALIZAR) e DELETE(REMOVER).
 
+- [x] Cadastra doadores de materiais de construção - POST
+- [x] Cadastra beneficiados para receber doações de materiais de construção - POST
 - [x] Cadastra as doações de materiais de construção - POST
-- [x] Busca todos os cadastros - GET
+- [x] Valida o acesso dos doadores de materiais de construção - POST
+- [x] Valida o acesso dos beneficiados de materiais de construção - POST
+- [x] Busca todos os cadastros de materiais de construção - GET
+- [x] Busca todos os cadastros de doadores - GET
+- [x] Busca todos os cadastros de beneficiados - GET
 - [x] Busca por material - GET
-- [x] Atualiza material e telefone - PATCH
+- [x] Atualiza dados do cadastro de material de construção - PATCH
 - [x] Apaga os cadastro que tiveram todos os materiais doados - DELETE
 
 ## 💻**Tecnologias**
@@ -105,49 +111,74 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
 
 ## 🗺️**Rotas/EndPoints**
 
-### GET /todos - "/todos"
-<localhost:8000/nossareforma/todos>
+### GET /todos - "/nossareforma/todos"
 <https://nossareforma.herokuapp.com/nossareforma/todos>
-<p>Rota que retorna uma lista com todos os itens para doação.</p>
+<p>Rota pública onde retorna uma lista com todos os itens para doação, exceto nome e telefone do doador.</p>
 <p>HTTP Status Code: 200 - Ok</p>
 
-### GET - "/buscar"
-<localhost:8000/nossareforma/buscar>
+### GET - "/nossareforma/buscar"
 <https://nossareforma.herokuapp.com/nossareforma/buscar>
 <p>Rota que retorna lista dos cadastro contendo o material pesquisado.</p>
 <p>HTTP Status Code: 200 - Ok</p>
 
-### POST - "/doacao"
-<localhost:8000/nossareforma/doacao>
+### POST - "/doadores/criarconta"
+<https://nossareforma.herokuapp.com/doadores/criarconta>
+<p>Rota onde o doador se cadastra.</p>
+<p>HTTP Status Code: 201 - Created</p>
+
+### POST - "/doadores/logindoador"
+<https://nossareforma.herokuapp.com/doadores/logindoador>
+<p>Rota para login do doador, onde é feita a validação e gerado um token para autorização.</P>
+<p>HTTP Status Code: 200 - Ok</p>
+
+### POST - "/beneficiados/criar"
+<https://nossareforma.herokuapp.com/beneficiados/criar>
+<p>Rota onde o beneficiado se cadastra.</p>
+<p>HTTP Status Code: 201 - Created</p>
+
+### POST - "/beneficiados/logindoador"
+<https://nossareforma.herokuapp.com/beneficiados/logindoador>
+<p>Rota para login do beneficiado, onde é feita a validação e gerado um token para autorização.</P>
+<p>HTTP Status Code: 200 - Ok</p>
+
+### POST - "/nossareforma/doacao"
 <https://nossareforma.herokuapp.com/nossareforma/doacao>
 <p>Rota que recebe um novo material, adiciona ele collection e retorna o item criado.</p>
 <p>HTTP Status Code: 201 - Created</p>
 
-### PUT /:id - "/atualiza"
-<localhost:8000/nossareforma/atualiza/:id>
+### PUT /:id - "/nossareforma/atualiza"
 <https://nossareforma.herokuapp.com/nossareforma/atualiza/:id>
 <p>Rota que atualiza certo item da collection e retorna o item atualizado.</p>
 <p>HTTP Status Code: 200 - Ok</p>
 
 ### DELETE /:id - "/delete"
-<localhost:8000/nossareforma/remove/:id>
 <https://nossareforma.herokuapp.com/nossareforma/remove/:id>
 <P>Rota que deleta um item baseado em seu id.</P>
 <p>HTTP Status Code: 204 - No Content</p>
 
 ## 📝**Schema - materialSchema**
     - id: mongoose.Schema.Types.ObjectId,
-    - finalizado: Boolean,
+    - finished: Boolean,
     - material: String,
-    - quantidadeDeMaterial: String,
-    - bairroRetirada: String,
-    - nome: String,
-    - telefone: String
+    - qtyMaterial: String,
+    - district: String,
+    - donor: mongoose.Schema.Types.ObjectId,
+    - phone: String
     
+## 📝**Schema - donorsSchema**
+    - name: String,
+    - email: String,
+    - password: String
+
+## 📝**Schema - benefitedSchema**
+    - name: String,
+    - email: String,
+    - password: String
+
 ## 🚀**Melhorias para o futuro**
-- criar um estoque com entrada e saída de material para controle
-- login q só cadastre material quem fez cadastro prévio
-- login para quem busca material só tenha acesso com cadastro prévio
+- Criar um estoque com entrada e saída de material para controle de quantidade,
+- Melhorar as validações,
+- Melhorar o schema para ter mais dados dos usuários.
 
 ## 🙏🏽**Agradecimentos**
 <div align=justify>
@@ -158,9 +189,8 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
     <p>Nossa facilitadora é um caso à parte, viu!? Raquel, que paciência! Obrigada por estar sempre disposta, pela relação próxima e cheia de alto astral! Sem você não teria sido tão bom!</p>
     <p>Por fim, e não menos importante nesse processo, agradeço, às profas e monitoras MA-RA-VI-LHO-SAS! Cada uma trazendo seu conhecimento, vivência e acolhimento da maneira mais </p>
     <p>Enfim, agradecer ao universo por tudo isso!!!</p>
-    💜👩💜👩🏼💜👩🏽💜👩🏾💜👩🏿💜
+    <p>💜👩💜👩🏼💜👩🏽💜👩🏾💜👩🏿💜</p>
 </div>
-
 
 <img src="./assets/janainaLopes.jpg" width="30%">
 <p>💬 Para entrar em contato seguem os canais abaixo.</p>
