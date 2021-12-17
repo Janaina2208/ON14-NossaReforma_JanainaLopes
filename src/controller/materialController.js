@@ -7,13 +7,12 @@ const createDonations = async (req, res) => {
         const newDonation = new NossaReforma({
             //pode ser tb = await NossaReforma.create(req.body)
             //res.status normal
-            _id: new mongoose.Types.ObjectId(),
-            finalizado: req.body.finalizado,
+            finished: req.body.finished,
             material: req.body.material,
-            quantidadeDeMaterial: req.body.quantidadeDeMaterial,
-            bairroRetirada: req.body.bairroRetirada,
-            nome: req.body.nome,
-            telefone: req.body.telefone
+            qtyMaterial: req.body.qtyMaterial,
+            district: req.body.district,
+            donor: req.userId,
+            phone: req.body.phone
         })
 
         const donationSaved = await newDonation.save()
@@ -31,7 +30,7 @@ const createDonations = async (req, res) => {
 //GET /todos - "/todos"
 const getAll = async (req, res) => {
     try {
-        const materials = await NossaReforma.find()
+        const materials = await NossaReforma.find().select("-phone") //.populate("donor")
         res.status(200).json(materials)
     } catch (error) {
         res.status(500).json({
@@ -69,16 +68,15 @@ const getByMaterial = async (req, res) => {
 //PUT /:id - "/atualiza"
 const updateDonationsById = async (req, res) => {
     try {
+        // const findMaterial = await NossaReforma.findById(req.userId)
         const findMaterial = await NossaReforma.findById(req.params.id)
-        console.log(findMaterial)
 
         if(findMaterial){
-            findMaterial.finalizado = req.body.finalizado || findMaterial.finalizado
+            findMaterial.finished = req.body.finished || findMaterial.finished
             findMaterial.material = req.body.material || findMaterial.material
-            findMaterial.quantidadeDeMaterial = req.body.quantidadeDeMaterial || findMaterial.quantidadeDeMaterial
-            findMaterial.bairroRetirada = req.body.bairroRetirada || findMaterial.bairroRetirada
-            findMaterial.nome = req.body.nome || findMaterial.nome
-            findMaterial.telefone = req.body.telefone || findMaterial.telefone
+            findMaterial.qtyMaterial = req.body.qtyMaterial || findMaterial.qtyMaterial
+            findMaterial.district = req.body.district || findMaterial.district
+            findMaterial.phone = req.body.phone || findMaterial.phone
         }
         const savedDoacao = await findMaterial.save()
         // console.log('APÓS ATUALIZAR', savedDoacao)
@@ -100,7 +98,7 @@ const deleteDoacao = async (req, res) => {
 
         await doacaoFound.delete()
 
-        res.status(204).json({
+        res.status(200).json({ //não coloquei 204 pq queria retornar msg
             message: "Doação deletada com sucesso. Obrigada pela contibuição!"
         })
     } catch (error) {

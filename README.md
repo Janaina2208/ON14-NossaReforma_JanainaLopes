@@ -10,17 +10,13 @@
 API para doação de material de construção excedentes de outras reformas.
 
 ## 👩‍🔧**Sobre o projeto** 🧱📝👷‍♀️
+>"Segundo estimativas recentemente realizadas pela Organização das Nações Unidas (ONU), mais de 100 milhões de pessoas em todo o mundo não possuem um lugar para viver, enquanto mais de 1 bilhão reside em moradias inadequadas. Esse problema é uma reprodução das desigualdades sociais e de renda existentes nas sociedades." 
+[Fonte: Uol](https://escolakids.uol.com.br/geografia/problema-da-falta-de-moradia.htm#:~:text=Segundo%20estimativas%20recentemente%20realizadas%20pela,de%20renda%20existentes%20nas%20sociedades.)
+
 <div align=justify>
-    "Segundo estimativas recentemente realizadas pela Organização das Nações Unidas (ONU), mais de 100 milhões de pessoas em todo o mundo não possuem um lugar para viver, enquanto mais de 1 bilhão reside em moradias inadequadas. Esse problema é uma reprodução das desigualdades sociais e de renda existentes nas sociedades." 
-
-    [Fonte: Uol](https://escolakids.uol.com.br/geografia/problema-da-falta-de-moradia.htm#:~:text=Segundo%20estimativas%20recentemente%20realizadas%20pela,de%20renda%20existentes%20nas%20sociedades.)
-
     <p>Segundo estudos publicados, o nordeste é uma das regiões brasileiras mais afetadas pela desigualdade social e com os piores índices de desenvolvimento humano -IDH. Esses déficts geram grandes impactos principalmente na educação, saúde e moradia, pois as pessoas que estão na base da nossa estrutura social, por vezes, têm piores condições de vida em função da diferença econômica entre as classes.</p>
-
     <p>Atuando como engenheira civil e atuando em diferentes frentes de trabalho, percebi de um lado o desperdício de material, geralmente comprado em excesso, e do outro a necessidade das pessoas de reparos simples no lar que fariam diferença na qualidade da moradia, mas lhes faltam recursos. Pensando em, de algum modo, melhorar a qualidade de vida da população, pensei em iniciar pelo ponto que tenho maior conhecimento, construções e reformas. Se observarmos a quantidade de material tida como entulho por uns, mas de grande serventia para outros, faríamos habitações mais saudáveis.</p>
-
     <p>Com esta aplicação, o doador economiza no transporte e descarte de materiais de construção, enquanto o recebedor terá itens necessário para melhorias de suas moradias,segurança e bem-estar de suas famílias.</p>
-
     <p>Acredito que num ambiente estruturado e com variáveis de ambiente adaptadas às necessidades dos indivíduos, tem-se saúde física e mental para desenvolver melhor as atividades cotidianas e transformar vidas!</p>
 </div>
 
@@ -44,8 +40,9 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
 - [cors](https://www.npmjs.com/package/cors)
 - [MongoDB](https://mongodb.com/)
 - [Heroku](https://heroku.com/)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Jwt](https://www.npmjs.com/package/jsonwebtoken)
 
->>>>>>>>>>>>>>>>>>> FALTA INSERIR: Bcrypt, jwt(npm i jsonwebtoken)
 ## 🧱**Arquitetura MVC**
 
         📂  NossaReforma_ON14
@@ -58,7 +55,10 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
             |   Procfile
             |   server.js
             \--📂 assets
-                |       logo_nossaReforma
+                |       janainaLopes.jpg
+                |
+                |       logo_nossaReforma.png
+                |
             \--📂 node_modules
             \--📂src
                 |
@@ -66,22 +66,42 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
                 |
                 📂---controller
                 |       
-                |       doadoesController.js
+                |       benefitedController.js
+                |
+                |       donorController.js
+                |
+                |       materialController.js
                 |
                 📂---database
                 |       
                 |       config.js
-                |                                       
+                |                
+                📂---helpers
+                |       
+                |       auth.js
+                |              
+                📂---middlewares
+                |       
+                |       auth.js
+                |                                         
                 📂---model
                 |        
+                |       benefitedSchema.js
+                |
+                |       donorsSchema.js
+                |
                 |       materialSchema.js
                 |
                 📂---routes
                 |      
-                |       materialRoutes.js
+                |       benefitedRoutes.js
+                |
+                |       donorRoutes.js
                 |
                 |       index.js
-                |__      
+                |
+                |       materialRoutes.js
+                |__
 
 ## 🗺️**Rotas/EndPoints**
 

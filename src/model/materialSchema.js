@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const materialSchema = new mongoose.Schema({
     id: mongoose.Schema.Types.ObjectId,
-    finalizado: {
+    finished: {
         type: Boolean,
         required: true
     },
@@ -10,25 +10,24 @@ const materialSchema = new mongoose.Schema({
     // e isso terá um registro no banco
     material: {
         type: String,
-        required: true
+        required: true,
+        lowercase: true
     },
-    quantidadeDeMaterial: {
+    qtyMaterial: {
         type: String,
         default: true
     },
-    bairroRetirada: {
+    district: {
         type: String,
         required: true
     },
-    nome: {
-        type: String,
-        required: true,
-        unique: true
+    donor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Donor"
     },
-    telefone: {
+    phone: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     }
 }, {timestamps:true})
 
