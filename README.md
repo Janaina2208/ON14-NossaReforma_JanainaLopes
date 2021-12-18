@@ -11,7 +11,7 @@ API para doação de material de construção excedentes de outras reformas.
 
 ## 👩‍🔧**Sobre o projeto** 🧱📝👷‍♀️
 >"Segundo estimativas recentemente realizadas pela Organização das Nações Unidas (ONU), mais de 100 milhões de pessoas em todo o mundo não possuem um lugar para viver, enquanto mais de 1 bilhão reside em moradias inadequadas. Esse problema é uma reprodução das desigualdades sociais e de renda existentes nas sociedades." 
-[Fonte: Uol](https://escolakids.uol.com.br/geografia/problema-da-falta-de-moradia.htm#:~:text=Segundo%20estimativas%20recentemente%20realizadas%20pela,de%20renda%20existentes%20nas%20sociedades.)
+[Por Me. Rodolfo Alves Pena](https://escolakids.uol.com.br/geografia/problema-da-falta-de-moradia.htm#:~:text=Segundo%20estimativas%20recentemente%20realizadas%20pela,de%20renda%20existentes%20nas%20sociedades.)
 
 <div align=justify>
     <p>Segundo estudos publicados, o nordeste é uma das regiões brasileiras mais afetadas pela desigualdade social e com os piores índices de desenvolvimento humano -IDH. Esses déficts geram grandes impactos principalmente na educação, saúde e moradia, pois as pessoas que estão na base da nossa estrutura social, por vezes, têm piores condições de vida em função da diferença econômica entre as classes.</p>
@@ -217,7 +217,7 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
     <p>Falando sobre amizade... QUE SELEÇÃO É ESSA, {REPROGRAMA}??? Como que vocês selecionam esse time incrível assim!? Obrigada novas, que já são antigas, amigas! Eu prefiro não nomear uma, nem ordenar, nem mensurar... vocês são incríveis! Como falamos: Deusas, Anjas, Maravilhosas! Obrigada por esta jornada... obrigada por compartilharem tanto! Mulheres, umas pelas outras, sem ninguém soltar a mão de ninguém!</p>
     <p>Sobre o mundo {Reprograma}... Que cultura extraordinária! Muito acolhimento, calor humano, embasamento, incansáveis semanas de estudos, conteúdos direcionados e semanas lindas de compartilhamento.</p>
     <p>Nossa facilitadora é um caso à parte, viu!? Raquel, que paciência! Obrigada por estar sempre disposta, pela relação próxima e cheia de alto astral! Sem você não teria sido tão bom!</p>
-    <p>Por fim, e não menos importante nesse processo, agradeço, às profas e monitoras MA-RA-VI-LHO-SAS! Cada uma trazendo seu conhecimento, vivência e acolhimento da maneira mais </p>
+    <p>Por fim, e não menos importante nesse processo, agradeço, às profas e monitoras MA-RA-VI-LHO-SAS! Cada uma trazendo seu conhecimento, vivência e acolhimento da maneira mais enriquecedora possível!</p>
     <p>Enfim, agradecer ao universo por tudo isso!!!</p>
     <p>💜👩💜👩🏼💜👩🏽💜👩🏾💜👩🏿💜</p>
 </div>
