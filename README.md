@@ -109,6 +109,26 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
                 |       materialRoutes.js
                 |__
 
+<br>
+
+## 🔃 Quadro de rotas:
+
+| Método HTTP  | Endpoint                     | Descrição                              |
+| ------------ | ---------------------------- | ---------------------------------------|
+| GET          | `/nossareforma/todos`        | Retorna todos os materiais para doação |
+| GET          | `/nossareforma/buscar`       | Retorna os materiais por nome          |
+| GET          | `/beneficiados/todos`        | Retorna todos beneficiados cadastrados |
+| GET          | `/doadores/todos`            | Retorna todos doadores cadastrados     |
+| POST         | `/doadores/criarconta`       | Cria/cadastra novo doador              |
+| POST         | `/doadores/logindoador`      | login de usuário para autorização      |
+| POST         | `/beneficiados/criar`        | Cria/cadastra novo beneficiado         |
+| POST         | `/beneficiados/login`        | login de usuário para autorização      |
+| POST         | `/nossareforma/doacao`       | Cria/cadastra novo material            |
+| PATCH        | `/nossareforma/atualiza`     | Atualiza cadastro de material          |
+| DELETE       | `nossareforma/delete`        | Remove cadastro do material            |
+
+<br>
+
 ## 🗺️**Rotas/EndPoints**
 
 ### GET /todos - "/nossareforma/todos"
@@ -131,14 +151,24 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
 <p>Rota para login do doador, onde é feita a validação e gerado um token para autorização.</P>
 <p>HTTP Status Code: 200 - Ok</p>
 
+### GET /todos - "/doadores/todos"
+<https://nossareforma.herokuapp.com/doadores/todos>
+<p>Rota privada que retorna lista de todos os doadores cadastrados.</p>
+<p>HTTP Status Code: 200 - Ok</p>
+
 ### POST - "/beneficiados/criar"
 <https://nossareforma.herokuapp.com/beneficiados/criar>
 <p>Rota onde o beneficiado se cadastra.</p>
 <p>HTTP Status Code: 201 - Created</p>
 
-### POST - "/beneficiados/logindoador"
+### POST - "/beneficiados/login"
 <https://nossareforma.herokuapp.com/beneficiados/logindoador>
 <p>Rota para login do beneficiado, onde é feita a validação e gerado um token para autorização.</P>
+<p>HTTP Status Code: 200 - Ok</p>
+
+### GET /todos - "/beneficiados/todos"
+<https://nossareforma.herokuapp.com/beneficiados/todos>
+<p>Rota privada que retorna lista de todos os beneficiários cadastrados.</p>
 <p>HTTP Status Code: 200 - Ok</p>
 
 ### POST - "/nossareforma/doacao"
@@ -146,12 +176,12 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
 <p>Rota que recebe um novo material, adiciona ele collection e retorna o item criado.</p>
 <p>HTTP Status Code: 201 - Created</p>
 
-### PUT /:id - "/nossareforma/atualiza"
+### PATCH /:id - "/nossareforma/atualiza"
 <https://nossareforma.herokuapp.com/nossareforma/atualiza/:id>
 <p>Rota que atualiza certo item da collection e retorna o item atualizado.</p>
 <p>HTTP Status Code: 200 - Ok</p>
 
-### DELETE /:id - "/delete"
+### DELETE /:id - "nossareforma/delete"
 <https://nossareforma.herokuapp.com/nossareforma/remove/:id>
 <P>Rota que deleta um item baseado em seu id.</P>
 <p>HTTP Status Code: 204 - No Content</p>

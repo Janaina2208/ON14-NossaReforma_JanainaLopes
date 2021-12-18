@@ -65,7 +65,7 @@ const getByMaterial = async (req, res) => {
 }
 
 
-//PUT /:id - "/atualiza"
+//PATCH /:id - "/atualiza"
 const updateDonationsById = async (req, res) => {
     try {
         // const findMaterial = await NossaReforma.findById(req.userId)
