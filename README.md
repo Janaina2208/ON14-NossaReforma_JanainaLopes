@@ -16,7 +16,7 @@ API para doação de material de construção excedentes de outras reformas.
 <div align=justify>
     <p>Segundo estudos publicados, o nordeste é uma das regiões brasileiras mais afetadas pela desigualdade social e com os piores índices de desenvolvimento humano -IDH. Esses déficts geram grandes impactos principalmente na educação, saúde e moradia, pois as pessoas que estão na base da nossa estrutura social, por vezes, têm piores condições de vida em função da diferença econômica entre as classes.</p>
     <p>Atuando como engenheira civil e atuando em diferentes frentes de trabalho, percebi de um lado o desperdício de material, geralmente comprado em excesso, e do outro a necessidade das pessoas de reparos simples no lar que fariam diferença na qualidade da moradia, mas lhes faltam recursos. Pensando em, de algum modo, melhorar a qualidade de vida da população, pensei em iniciar pelo ponto que tenho maior conhecimento, construções e reformas. Se observarmos a quantidade de material tida como entulho por uns, mas de grande serventia para outros, faríamos habitações mais saudáveis.</p>
-    <p>Com esta aplicação, o doador economiza no transporte e descarte de materiais de construção, enquanto o recebedor terá itens necessário para melhorias de suas moradias,segurança e bem-estar de suas famílias.</p>
+    <p>Com esta aplicação, o doador economiza no transporte e descarte de materiais de construção, enquanto o recebedor terá itens necessários para melhorias de suas moradias, segurança e bem-estar de suas famílias.</p>
     <p>Acredito que num ambiente estruturado e com variáveis de ambiente adaptadas às necessidades dos indivíduos, tem-se saúde física e mental para desenvolver melhor as atividades cotidianas e transformar vidas!</p>
 </div>
 
@@ -113,19 +113,19 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
 
 ## 🔃 Quadro de rotas:
 
-| Método HTTP  | Endpoint                     | Descrição                              |
-| ------------ | ---------------------------- | ---------------------------------------|
-| GET          | `/nossareforma/todos`        | Retorna todos os materiais para doação |
-| GET          | `/nossareforma/buscar`       | Retorna os materiais por nome          |
-| GET          | `/beneficiados/todos`        | Retorna todos beneficiados cadastrados |
-| GET          | `/doadores/todos`            | Retorna todos doadores cadastrados     |
-| POST         | `/doadores/criarconta`       | Cria/cadastra novo doador              |
-| POST         | `/doadores/logindoador`      | login de usuário para autorização      |
-| POST         | `/beneficiados/criar`        | Cria/cadastra novo beneficiado         |
-| POST         | `/beneficiados/login`        | login de usuário para autorização      |
-| POST         | `/nossareforma/doacao`       | Cria/cadastra novo material            |
-| PATCH        | `/nossareforma/atualiza`     | Atualiza cadastro de material          |
-| DELETE       | `nossareforma/delete`        | Remove cadastro do material            |
+| Método HTTP  | Tipo da Rota | Endpoint                     | Descrição                              |
+| ------------ | ------------ | ---------------------------- | ---------------------------------------|
+| GET          | Pública      | `/nossareforma/todos`        | Retorna todos os materiais para doação |
+| GET          | Privada      | `/nossareforma/buscar`       | Retorna os materiais por nome          |
+| GET          | Privada      | `/beneficiados/todos`        | Retorna todos beneficiados cadastrados |
+| GET          | Privada      | `/doadores/todos`            | Retorna todos doadores cadastrados     |
+| POST         | Pública      | `/doadores/criarconta`       | Cria/cadastra novo doador              |
+| POST         | Pública      | `/doadores/logindoador`      | login de usuário para autorização      |
+| POST         | Pública      | `/beneficiados/criar`        | Cria/cadastra novo beneficiado         |
+| POST         | Pública      | `/beneficiados/login`        | login de usuário para autorização      |
+| POST         | Privada      | `/nossareforma/doacao`       | Cria/cadastra novo material            |
+| PATCH        | Privada      | `/nossareforma/atualiza`     | Atualiza cadastro de material          |
+| DELETE       | Privada      | `nossareforma/delete`        | Remove cadastro do material            |
 
 <br>
 
@@ -224,6 +224,8 @@ Este projeto é uma API fundamentada no CRUD, que são:  CREATE (CRIAR), READ(LE
 
 <img src="./assets/janainaLopes.jpg" width="30%">
 <p>💬 Para entrar em contato seguem os canais abaixo.</p>
+<p>📂https://github.com/Janaina2208</p>
+<p>📠https://www.linkedin.com/in/janainalopes-dev/</p>
 <p>📫 email: janaina.dev@yahoo.com</p>
 <p>☎ telefone/whatsapp: (71) 99122-6375</p>
 
